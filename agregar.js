@@ -1,8 +1,8 @@
 class Node {
     constructor(valor) {
         this.valor = valor;
-        this.izquierda = null;
-        this.derecha = null;
+        this.izq = null;
+        this.der = null;
     }
 }
 function insertar(raiz, valor) {
@@ -10,21 +10,21 @@ function insertar(raiz, valor) {
         return new Node(valor);
     }
     if (valor < raiz.valor) {
-        raiz.izquierda = insertar(raiz.izquierda, valor);
+        raiz.izq = insertar(raiz.izq, valor);
     } else if (valor > raiz.valor) {
-        raiz.derecha = insertar(raiz.derecha, valor);
+        raiz.der = insertar(raiz.der, valor);
     }
     return raiz;
 }
 function inorder(raiz) {
     if (raiz) {
-        inorder(raiz.izquierda);
+        inorder(raiz.izq);
         console.log(raiz.valor);
-        inorder(raiz.derecha);
+        inorder(raiz.der);
     }
 }
 let raiz = null;
-const elementos = [500, 300, 700, 200, 400, 600, 800];
+const elementos = [654, 987, 433, 276, 96, 634, 999];
 elementos.forEach(elemento => {
     raiz = insertar(raiz, elemento);
 });
